@@ -1,4 +1,5 @@
 :root{--g:#0b3d2e;--g2:#145c45;--y:#ffc21a;--bg:#f4f6f3;--ink:#16201b;--mut:#66736c;--card:#fff;--line:#dfe5e1}
+[hidden]{display:none!important}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1512;--ink:#e8efe9;--mut:#93a39a;--card:#18221d;--line:#2a3730}}
 *{box-sizing:border-box;min-width:0}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
