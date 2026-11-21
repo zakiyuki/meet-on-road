@@ -1,0 +1,56 @@
+:root{--g:#0b3d2e;--g2:#145c45;--y:#ffc21a;--bg:#f4f6f3;--ink:#16201b;--mut:#66736c;--card:#fff;--line:#dfe5e1}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1512;--ink:#e8efe9;--mut:#93a39a;--card:#18221d;--line:#2a3730}}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
+button,input,a.main{font:inherit}
+.join{max-width:440px;margin:0 auto;padding:max(32px,env(safe-area-inset-top)) 20px 32px}
+.join h1{font-size:40px;line-height:1.05;margin:0 0 8px;color:var(--g)}
+@media (prefers-color-scheme:dark){.join h1{color:var(--y)}}
+.lead{color:var(--mut);margin:0 0 24px}
+label,.label{display:block;font-weight:600;margin:16px 0 6px}
+label input{display:block;width:100%;margin-top:6px}
+input{font-size:16px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.row{display:flex;gap:8px;align-items:center}.row input{flex:1;margin:0}
+.colors{display:flex;gap:10px;flex-wrap:wrap}
+.colors button{width:44px;height:44px;border-radius:50%;border:3px solid transparent;cursor:pointer}
+.colors button.sel{border-color:var(--ink)}
+.main,.sub{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700;text-decoration:none}
+.main{background:var(--g);color:#fff}.sub{background:var(--line);color:var(--ink)}
+form .main{width:100%;margin-top:24px}.wide{width:100%}
+.note{color:var(--mut);font-size:13px;margin-top:14px}
+.app{position:fixed;inset:0;display:flex;flex-direction:column}
+#map{flex:1 1 55%}
+.top{position:absolute;z-index:500;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--card);border-radius:12px;padding:8px 12px;box-shadow:0 2px 10px #0003}
+.muted{color:var(--mut);font-size:13px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-left:4px;background:#2bb673}.dot.off{background:#c33}
+.chip{border:0;background:var(--y);color:#222;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13px;cursor:pointer;min-height:36px}
+.fab{position:absolute;z-index:500;right:12px;top:calc(max(10px,env(safe-area-inset-top)) + 64px);width:48px;height:48px;border-radius:50%;border:0;background:var(--card);color:var(--mut);font-size:22px;box-shadow:0 2px 10px #0003}
+.fab.on{color:var(--g2)}
+.sheet{flex:0 0 auto;max-height:48%;overflow:auto;background:var(--card);border-radius:18px 18px 0 0;padding:14px 14px max(14px,env(safe-area-inset-bottom));box-shadow:0 -4px 16px #0002;margin-top:-16px;z-index:600}
+.members{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:6px}
+.members li{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.members .sw{width:14px;height:14px;border-radius:50%;flex:none}
+.members .nm{font-weight:700;flex:1}.members .inf{color:var(--mut);font-size:13px;text-align:right;white-space:nowrap}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.filters label{margin:0;font-weight:600;font-size:14px;display:flex;align-items:center;gap:4px;background:var(--bg);border-radius:999px;padding:6px 12px}
+.filters input{width:18px;height:18px;margin:0}
+.status{color:var(--mut);font-size:13px;margin:8px 0}
+.cands{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.cands li{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center}
+.cands .body{flex:1}.cands .t{font-weight:700}.cands .s{color:var(--mut);font-size:13px}
+.cands button{flex:none}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 6px;margin-right:6px;background:var(--y);color:#222}
+.tag.コンビニ{background:#3a86ff;color:#fff}.tag.道の駅{background:#2bb673;color:#fff}
+.meet{background:var(--g);color:#fff;border-radius:14px;padding:12px;margin-bottom:12px}
+.meetHead{font-size:18px}.eta{font-size:14px;opacity:.9;margin:4px 0 10px}
+.meet .main{background:var(--y);color:#222;flex:1}
+.toast{position:fixed;z-index:1000;left:50%;bottom:24px;transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;max-width:90vw}
+.pin{position:relative}
+.pin .c{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 6px #0006}
+.pin .a{position:absolute;left:5px;top:-12px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid;transform-origin:6px 23px}
+.pin .l{position:absolute;left:28px;top:0;white-space:nowrap;background:#fff;color:#111;font-size:12px;font-weight:700;padding:1px 6px;border-radius:6px;box-shadow:0 1px 4px #0004}
+.pin.off{opacity:.45}
+.star{font-size:30px;line-height:30px;text-shadow:0 1px 4px #0008}
+.cpin{width:14px;height:14px;border-radius:50%;background:var(--y);border:2px solid #222}
+.cpin.コンビニ{background:#3a86ff}.cpin.道の駅{background:#2bb673}
+@media (min-width:900px){.app{flex-direction:row}.sheet{max-height:none;width:400px;border-radius:0;margin:0;order:-1}#map{flex:1}.top{left:412px}}

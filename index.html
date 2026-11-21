@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b3d2e">
+<title>合流ナビ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 参加画面 -->
+<section id="join" class="join">
+  <h1>合流ナビ</h1>
+  <p class="lead">別々の高速を走る仲間と現在地を共有して、<br>お互い近いSA・PA・コンビニで合流。</p>
+  <form id="joinForm">
+    <label>表示名<input id="name" maxlength="16" placeholder="例: ゆうき" required></label>
+    <label>ルームコード
+      <div class="row"><input id="room" maxlength="12" autocapitalize="characters" required><button type="button" id="newRoom" class="sub">新規</button></div>
+    </label>
+    <div class="label">マーカーの色</div>
+    <div id="colors" class="colors"></div>
+    <button class="main" type="submit">参加して共有を始める</button>
+    <p class="note">位置はルームコードで暗号化して送ります。コードは仲間にだけ教えてください。<br>運転中の操作は同乗者にお願いしてください。共有はこの画面を開いている間だけ行われます。</p>
+  </form>
+</section>
+
+<!-- メイン画面 -->
+<section id="app" class="app" hidden>
+  <div id="map"></div>
+  <header class="top">
+    <div><span class="muted">ルーム</span> <b id="roomLabel"></b> <span id="conn" class="dot off"></span></div>
+    <button id="share" class="chip">招待リンクをコピー</button>
+  </header>
+  <button id="follow" class="fab on" title="自分を追従">◎</button>
+
+  <div class="sheet">
+    <div id="meetBox" class="meet" hidden>
+      <div class="meetHead"><span id="meetKind" class="tag"></span><b id="meetName"></b></div>
+      <div id="meetEta" class="eta"></div>
+      <div class="row">
+        <a id="navLink" class="main" target="_blank" rel="noopener">ナビで開く</a>
+        <button id="clearMeet" class="sub">解除</button>
+      </div>
+    </div>
+
+    <ul id="members" class="members"></ul>
+
+    <div class="filters">
+      <label><input type="checkbox" value="SA" checked>SA</label>
+      <label><input type="checkbox" value="PA" checked>PA</label>
+      <label><input type="checkbox" value="道の駅" checked>道の駅</label>
+      <label><input type="checkbox" value="コンビニ" checked>コンビニ</label>
+    </div>
+    <button id="search" class="main wide">合流地点を探す</button>
+    <div id="status" class="status"></div>
+    <ol id="cands" class="cands"></ol>
+  </div>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/mqtt@5.10.1/dist/mqtt.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
